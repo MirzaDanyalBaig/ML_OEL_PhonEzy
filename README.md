@@ -7,12 +7,19 @@ The data comes from the spanish website PC componentes. The data was collected u
 Fields included:
 
 Smartphone Name: The unique identifier or model name of the smartphone.
+
 Brand: Smartphone brand.
+
 Model: Smartphone brand model.
+
 RAM (Random Access Memory): The amount of memory available for multitasking.
+
 Storage: capacity of the smartphone.
+
 Color: Color of the smarthpone.
+
 Free: Yes/No if the smartphone is attached to a cell company contract.
+
 Price: The cost of the smartphone in the respective currency.
 
 By utilizing this dataset, researchers and analysts can explore patterns, trends, and relationships between smartphone specifications and their pricing. It serves as an excellent resource for tasks such as price prediction, market analysis, and comparison of different smartphone configurations. Whether you are interested in identifying the most cost-effective options or understanding the impact of specific hardware components on smartphone
