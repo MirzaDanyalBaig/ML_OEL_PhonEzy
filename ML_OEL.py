@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df=pd.read_csv('ML-OEL\smartphonesDataset.csv')
+df=pd.read_csv('smartphonesDataset.csv')
 print(df.head()) #initial 5 rows of the dataset
 
 #Data Preprocessing
@@ -19,3 +19,88 @@ print(df['RAM'].value_counts()) #count of each RAM in the dataset
 print(df['Storage'].value_counts()) #count of each Storage in the dataset
 
 print(df.duplicated().sum()) #checking for duplicate values
+
+# Cleaning of data
+df.isna().sum()
+
+# EDA
+# Visualizing brand distribution
+count = df["Brand"].value_counts()
+# Calculate percentages
+percentage = (count/ count.sum()) * 100
+
+# Create the horizontal bar plot
+plt.figure(figsize=(10, 6))
+barplot = sns.barplot(x=percentage, y=percentage.index, orient='h',palette="deep")
+
+# Annotate each bar with the percentage value
+for index, value in enumerate(percentage):
+    plt.text(value, index, f'{value:.2f}%', va='center')
+
+# Set the labels and title
+plt.xlabel('Percentage')
+plt.ylabel("Brand")
+plt.title('Brand Distribution')
+plt.show()
+
+# Visualizing RAM distribution
+# Count the occurrences of each RAM category
+count = df["RAM"].value_counts()
+
+# Calculate percentages
+percentage = (count / count.sum()) * 100
+
+# Create a bar plot (histogram) with percentage labels
+plt.figure(figsize=(10, 6))
+barplot=sns.barplot(x=percentage.index, y=percentage, palette='muted')
+# Annotate each bar with the percentage value
+for p in barplot.patches:
+    barplot.annotate(f'{p.get_height():.2f}%',
+                     (p.get_x() + p.get_width() / 2., p.get_height()),
+                     ha='center', va='center',
+                     xytext=(0, 10),
+                     textcoords='offset points')
+
+# Set the labels and title
+plt.title("RAM Distribution")
+plt.xlabel("RAM")
+plt.ylabel("Percentage")
+plt.show()
+
+# Visualize smartphone storage distribution
+count=df["Storage"].value_counts()
+# Calculate percentages
+percentage = (count / count.sum()) * 100
+
+# Create a bar plot (histogram) with percentage labels
+plt.figure(figsize=(10, 6))
+barplot=sns.barplot(x=percentage.index, y=percentage, palette='muted')
+# Annotate each bar with the percentage value
+for p in barplot.patches:
+    barplot.annotate(f'{p.get_height():.2f}%',
+                     (p.get_x() + p.get_width() / 2., p.get_height()),
+                     ha='center', va='center',
+                     xytext=(0, 10),
+                     textcoords='offset points')
+# Set the labels and title
+plt.title("Storage Distribution")
+plt.xlabel("Storage")
+plt.ylabel("Percentage")
+plt.show()
+
+# Visualize color distribution
+count = df["Color"].value_counts()
+# Calculate percentages
+percentage = (count/ count.sum()) * 100
+
+# Create the horizontal barplot
+plt.figure(figsize=(10, 6))
+barplot = sns.barplot(x=percentage, y=percentage.index, orient='h',palette="deep")
+# Annotate each bar with the percentage value
+for index, value in enumerate(percentage):
+    plt.text(value, index, f'{value:.2f}%', va='center')
+# Set the labels and title
+plt.xlabel('Percentage')
+plt.ylabel("Color")
+plt.title('Color Distribution')
+plt.show()
