@@ -1,4 +1,10 @@
 # ML_OEL_PhonEzy
+
+Contributors:
+Muhammad Faizan
+Mirza Danyal Baig
+Aneeq Akhtar
+
 #datasetlink: https://www.kaggle.com/datasets/juanmerinobermejo/smartphones-price-dataset
 
 This dataset provides a comprehensive collection of information on various smartphones, enabling a detailed analysis of their specifications and pricing. It encompasses a wide range of smartphones, encompassing diverse brands, models, and configurations, making it a valuable resource for researchers, data analysts, and machine learning enthusiasts interested in the smartphone industry.
