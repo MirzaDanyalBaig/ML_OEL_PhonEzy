@@ -104,3 +104,21 @@ plt.xlabel('Percentage')
 plt.ylabel("Color")
 plt.title('Color Distribution')
 plt.show()
+
+# Checking relation between RAM and storage
+plt.scatter(x=df["RAM"],y=df["Storage"],c="green")
+plt.title("the relation between RAM and Storage")
+plt.xlabel("RAM")
+plt.ylabel("Storage")
+plt.show()
+
+# Plot the distribution of each numeric feature
+plt.figure(figsize=(20, 15))
+df.hist(bins=30, figsize=(20, 15), color='teal', edgecolor='black')
+plt.suptitle('Distribution of Numeric Features', fontsize=20)
+plt.show()
+
+# Pairplot to visualize relationships between features
+sns.pairplot(df, diag_kind='kde')
+plt.suptitle('Pairplot of Features', fontsize=20)
+plt.show()
