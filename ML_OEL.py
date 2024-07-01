@@ -21,7 +21,9 @@ print(df['Storage'].value_counts()) #count of each Storage in the dataset
 print(df.duplicated().sum()) #checking for duplicate values
 
 # Cleaning of data
-df.isna().sum()
+# Filling ram and storage with mode of there respective columns 
+df.fillna({'RAM': df['RAM'].mode()[0]} , inplace = True)
+df.fillna({'Storage': df['Storage'].mode()[0]} , inplace = True)
 
 # EDA
 # Visualizing brand distribution
