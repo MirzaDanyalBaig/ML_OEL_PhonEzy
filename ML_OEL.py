@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.preprocessing import StandardScaler
 
 df=pd.read_csv('smartphonesDataset.csv')
 print(df.head()) #initial 5 rows of the dataset
@@ -27,7 +28,7 @@ df.fillna({'Storage': df['Storage'].mode()[0]} , inplace = True)
 
 # EDA
 # Visualizing brand distribution
-count = df["Brand"].value_counts()
+'''count = df["Brand"].value_counts()
 # Calculate percentages
 percentage = (count/ count.sum()) * 100
 
@@ -124,3 +125,16 @@ plt.show()
 sns.pairplot(df, diag_kind='kde')
 plt.suptitle('Pairplot of Features', fontsize=20)
 plt.show()
+'''
+# Feature Engineering: Creating new features
+# Example: Price per GB of Storage (if 'Price' column exists)
+if 'Price' in df.columns:
+    df['Price_per_GB'] = df['Price'] / df['Storage']
+
+# Assuming 'Price' and 'Price_per_GB' are numeric features
+numeric_features = ['Price', 'Price_per_GB', 'RAM', 'Storage']
+scaler = StandardScaler()
+df[numeric_features] = scaler.fit_transform(df[numeric_features])
+
+print(df.head())  # Check the new feature and scaled values
+print(df['Price_per_GB'])
